@@ -1187,7 +1187,7 @@ section.blog .single-post.format-gallery > .post-content .post-inner-content {
 .single-post .post-inner-content .main-content blockquote , .blog.single-page .post-inner-content p ,
 .blog.single-page .post-inner-content span, .blog.single-page .post-inner-content blockquote , .blog.single-page .post-inner-content ul li
 {
-  line-height: 26px;
+  line-height: 20px;
 }
 
 .main-content img {

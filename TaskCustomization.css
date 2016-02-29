@@ -1,0 +1,20 @@
+section.blog .single-post > .post-content .post-inner-content {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.single-post h2.post-header {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+    line-height: 100%;
+    margin-top: -7px;
+}
+section.blog .single-post.format-standard > .post-content .post-inner-content {
+      margin-bottom: 10px;
+}
+section.blog.single-blog-page{
+	/* set minimum height of this section */
+	
+}
