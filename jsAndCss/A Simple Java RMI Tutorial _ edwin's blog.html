@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/ -->
+<html lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="google-site-verification" content="2goBd8d3PAdSpJM7gD3jYlr8PzMiLUGmLJ8kTex0PaE">
+    <meta charset="utf-8">
+        <title>A Simple Java RMI Tutorial | edwin's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <!-- Favicons -->
+        <link rel="shortcut icon" href="http://edwin.baculsoft.com/wp-content/uploads/2014/03/favicon-4.ico">
+        
+    
+<!-- All in One SEO Pack 2.2.4.2 by Michael Torbert of Semper Fi Web Design[541,598] -->
+<meta name="description" content="A Simple Java RMI Tutorial and Example">
+
+<meta name="keywords" content="simple, java, rmi, example, tutorial, ejb, utility,ejb3,java,programming,utility">
+
+<link rel="canonical" href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/">
+<!-- /all in one seo pack -->
+<link rel="alternate" type="application/rss+xml" title="edwin&#39;s blog » Feed" href="http://edwin.baculsoft.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="edwin&#39;s blog » Comments Feed" href="http://edwin.baculsoft.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="edwin&#39;s blog » A Simple Java RMI Tutorial Comments Feed" href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/feed/">
+<link rel="stylesheet" id="thickbox.css-css" href="./A Simple Java RMI Tutorial _ edwin's blog_files/thickbox.css" type="text/css" media="all">
+<link rel="stylesheet" id="feather-default-fonts-css" href="./A Simple Java RMI Tutorial _ edwin's blog_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="feather-bootstrap-css" href="./A Simple Java RMI Tutorial _ edwin's blog_files/bootstrap.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="feather-font-awesome-css" href="./A Simple Java RMI Tutorial _ edwin's blog_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="feather-css-css" href="./A Simple Java RMI Tutorial _ edwin's blog_files/main.css" type="text/css" media="all">
+<link rel="stylesheet" id="feather-user-custom-styles-css" href="./A Simple Java RMI Tutorial _ edwin's blog_files/user_settings.php" type="text/css" media="all">
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/prototype.js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/scriptaculous.js"></script><script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/builder.js"></script><script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/effects.js"></script><script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/dragdrop.js"></script><script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/controls.js"></script><script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/slider.js"></script><script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/sound.js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/effects(1).js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/lightbox.js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/jquery.js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/comment-reply.min.js"></script>
+<link rel="prev" title="Weird Blank Report When Using JasperReport" href="http://edwin.baculsoft.com/2012/01/weird-blank-report-when-using-jasperreport/">
+<link rel="next" title="NullPointerException When Using JPA" href="http://edwin.baculsoft.com/2012/02/nullpointerexception-when-using-jpa/">
+<link rel="shortlink" href="http://edwin.baculsoft.com/?p=777">
+
+	<!-- begin lightbox scripts -->
+	<script type="text/javascript">
+    //<![CDATA[
+    document.write('<link rel="stylesheet" href="http://edwin.baculsoft.com/wp-content/plugins/lightbox-2/Themes/Black/lightbox.css" type="text/css" media="screen" />');
+    //]]>
+    </script><link rel="stylesheet" href="./A Simple Java RMI Tutorial _ edwin's blog_files/lightbox.css" type="text/css" media="screen">
+	<!-- end lightbox scripts -->
+
+<!-- Wordpress Popular Posts v2.2.1 -->
+<link rel="stylesheet" href="./A Simple Java RMI Tutorial _ edwin's blog_files/wpp.css" type="text/css" media="screen">
+<!-- End Wordpress Popular Posts v2.2.1 -->
+<!-- Wordpress Popular Posts v2.2.1 -->
+<script type="text/javascript" charset="utf-8">
+    /* <![CDATA[ */				
+	jQuery.post('http://edwin.baculsoft.com/wp-admin/admin-ajax.php', {action: 'wpp_update', token: 'c4a347e7a5', id: 777});
+    /* ]]> */
+</script>
+<!-- End Wordpress Popular Posts v2.2.1 -->
+            <link rel="stylesheet" type="text/css" href="./A Simple Java RMI Tutorial _ edwin's blog_files/shCore.css"><link rel="stylesheet" type="text/css" href="./A Simple Java RMI Tutorial _ edwin's blog_files/shThemeDefault.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<style type="text/css" class="options-output">h2.site-description{font-weight:normal;font-style:normal;letter-spacing:px;}h2.site-description{font-weight:normal;font-style:normal;letter-spacing:px;}h2.site-description{font-weight:normal;font-style:normal;letter-spacing:px;}h2.site-description{font-weight:normal;font-style:normal;letter-spacing:px;}h2.site-description{font-weight:normal;font-style:normal;letter-spacing:px;}</style></head>
+<body class="single single-post postid-777 single-format-standard body-container" data-pinterest-extension-installed="cr1.39.1">
+<!-- header -->
+<header id="header" class="header">
+        
+
+        <!-- container -->
+        <div class="container">
+
+                    <div class="row">
+
+
+                            <!-- col-xs-12 col-md-12 -->
+                            <div class="col-md-12">
+
+                                
+                                                                <!-- logo -->
+                                <div class="logo">
+                                        
+                                        <a href="http://edwin.baculsoft.com/">Backpacker // Photographer //
+<br>
+Programmer // Gamer //</a>
+        
+                                </div>
+                                <!-- end logo -->
+                                                            
+                                
+
+                                <!-- top content -->
+                                <div class="top-content">
+                                    
+
+
+                                               
+                                             
+                                                <nav class="menu">
+                                                    <ul class="sf-menu"><li class="toggle" style="display: block;"><a href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/#">Menu</a></li><li id="menu-item-1405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1405" style="display: none;"><a title="My Application Stack" href="http://edwin.baculsoft.com/my-application-stack/">My Application Stack</a></li>
+<li id="menu-item-1402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1402" style="display: none;"><a title="MyBatis Tutorials" href="http://edwin.baculsoft.com/tag/mybatis/">MyBatis Tutorials</a></li>
+<li id="menu-item-1407" class="menu-item menu-item-type-taxonomy menu-item-object-post_format menu-item-1407" style="display: none;"><a title="Memorable Quotes" href="http://edwin.baculsoft.com/type/quote/">Memorable Quotes</a></li>
+<li id="menu-item-1404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1404" style="display: none;"><a href="http://edwin.baculsoft.com/archieves/">Archieves</a></li>
+<li id="menu-item-1406" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1406" style="display: none;"><a href="http://edwin.baculsoft.com/about/">About</a></li>
+</ul>                                                </nav>
+
+                                                                                                <!--  toggle  -->
+                                                <div class="search">
+                                                        
+                                                         <a href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/#" class="toggleSidebar"></a>
+                                                       
+                                                </div>
+                                                <!-- end search -->
+                                                 
+
+
+                                </div>
+                                <!-- end top content -->
+
+
+
+
+                            </div>
+                            <!-- end col-mx-12 col-md-12 -->
+
+                    </div>
+                    <!-- end row -->
+
+        </div>
+        <!-- end container -->
+
+</header><!-- /header --><!-- blog  -->
+<section class="blog single-blog-page">
+    
+            <div class="container">
+                <div class="row">
+
+                    <!-- left side -->
+                   <div id="blog" class="blog-wrapper col-md-8 col-xs-12">
+                    
+                            
+                                                        
+                            <!-- single post [post with image] -->
+                                                        <div class="post-777 post type-post status-publish format-standard hentry category-java category-programming tag-ejb3 tag-java tag-programming tag-utility single-post">
+                            
+
+
+
+
+                                    <!-- post format -->
+                                    
+                                    
+                                    <!-- 
+                                        check if post is quote or normal post content 
+                                        handle quote post type individually 
+                                     -->
+                                                                        <!-- post content  / normal post content -->
+                                    <div class="post-content">
+                                        
+
+                                        <div class="post-content-inner-wrapper">
+                                                    
+                                                    
+                                                        <!-- post inner content -->
+                                                        <div class="post-inner-content">
+                                                                
+                                                                <h2 class="post-header"><a href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/">A Simple Java RMI Tutorial</a></h2>
+
+
+                                                                
+                                                                 <!-- meta -->
+                                                                <div class="post-meta">
+                                                                        
+                                                                    <span class="date-span"><i class="fa fa-lg fa-clock-o"></i><a href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/">19 Jan , 2012</a></span>
+                                                                    <span class="comments-span"><i class="fa fa-lg fa-comments"></i><a href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/#comments">70 Comments</a></span>
+                                                                    <span class="share-post-span share-post"><i class="fa fa-lg fa-share"></i>		<a href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/#" class="share-text">Share</a>
+		<!-- share box -->
+		<div class="share-box">
+		        
+
+		        <div class="social-icons">
+		            
+		                
+		                <a target="_blank" name="fb_share" class="facebook" type="button" href="https://www.facebook.com/sharer.php?u=http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/&amp;t=A%20Simple%20Java%20RMI%20Tutorial"></a>
+		                <a target="_blank" href="https://twitter.com/intent/tweet?original_referer=http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/&amp;shortened_url=http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/&amp;text=A%20Simple%20Java%20RMI%20Tutorial&amp;url=http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/" class="twitter"></a>
+
+		                <a target="_blank" href="http://pinterest.com/pin/create/button/?source_url=http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/&amp;media=&amp;description=A%20Simple%20Java%20RMI%20Tutorial" class="pinterest"></a>
+		                <a target="_blank" href="https://plus.google.com/share?url=http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/" class="google"></a>
+
+		        </div>
+		        <!-- end social icons -->                                            
+		        
+		        
+
+
+		</div>
+		<!-- end share box -->
+		</span>
+                                                                   
+                                                                </div>
+                                                                <!-- end post meta -->
+                                                                
+                                                                <div class="clearfix"></div>
+
+
+
+
+                                                                <!-- post main content -->
+                                                                <div class="main-content">
+                                                                        
+
+                                                                       <p>Java Remote Method Invocation (Java RMI) enables the programmer to create distributed Java technology-based to Java technology-based applications, in which the methods of remote Java objects can be invoked from other Java virtual machines, possibly on different hosts. RMI uses object serialization to marshal and unmarshal parameters and does not truncate types, supporting true object-oriented polymorphism.</p>
+<p>Let’s just say RMI is the “older version” of ejb remote. Because in EJB, enterprise beans are made available for remote clients using RMI.</p>
+<p>In this example, im trying to create 2 different project, one is the RMI Server and another one is RMI Client.</p>
+<p>First is a simple interface, i will use this interface to create invocation methods and implementations. This interface will be on both Server’s and Client’s side.</p>
+<div><div id="highlighter_890236" class="syntaxhighlighter  java"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java keyword">package</code> <code class="java plain">com.edw.rmi;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="java keyword">import</code> <code class="java plain">java.rmi.Remote;</code></div><div class="line number4 index3 alt1"><code class="java keyword">import</code> <code class="java plain">java.rmi.RemoteException;</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="java keyword">public</code> <code class="java keyword">interface</code> <code class="java plain">Message </code><code class="java keyword">extends</code> <code class="java plain">Remote {</code></div><div class="line number7 index6 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">void</code> <code class="java plain">sayHello(String name) </code><code class="java keyword">throws</code> <code class="java plain">RemoteException;</code></div><div class="line number8 index7 alt1"><code class="java plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>and next is the implementation for my interface, it is exist only on the server’s side. It has to implements my interface and extends to UnicastRemoteObject class. </p>
+<div><div id="highlighter_710524" class="syntaxhighlighter  java"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">01</div><div class="line number2 index1 alt1">02</div><div class="line number3 index2 alt2">03</div><div class="line number4 index3 alt1">04</div><div class="line number5 index4 alt2">05</div><div class="line number6 index5 alt1">06</div><div class="line number7 index6 alt2">07</div><div class="line number8 index7 alt1">08</div><div class="line number9 index8 alt2">09</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java keyword">package</code> <code class="java plain">com.edw.rmi;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="java keyword">import</code> <code class="java plain">java.rmi.RemoteException;</code></div><div class="line number4 index3 alt1"><code class="java keyword">import</code> <code class="java plain">java.rmi.server.UnicastRemoteObject;</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="java keyword">public</code> <code class="java keyword">class</code> <code class="java plain">MessageImpl </code><code class="java keyword">extends</code> <code class="java plain">UnicastRemoteObject </code><code class="java keyword">implements</code> <code class="java plain">Message {</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java plain">MessageImpl() </code><code class="java keyword">throws</code> <code class="java plain">RemoteException {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number9 index8 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number10 index9 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number11 index10 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number12 index11 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">sayHello(String name) </code><code class="java keyword">throws</code> <code class="java plain">RemoteException {</code></div><div class="line number13 index12 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">System.out.println(</code><code class="java string">"hello "</code><code class="java plain">+name);</code></div><div class="line number14 index13 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number15 index14 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number16 index15 alt1"><code class="java plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>And next is creating my server side application. Im running on port 1099 for RMI port.</p>
+<div><div id="highlighter_119796" class="syntaxhighlighter  java"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">01</div><div class="line number2 index1 alt1">02</div><div class="line number3 index2 alt2">03</div><div class="line number4 index3 alt1">04</div><div class="line number5 index4 alt2">05</div><div class="line number6 index5 alt1">06</div><div class="line number7 index6 alt2">07</div><div class="line number8 index7 alt1">08</div><div class="line number9 index8 alt2">09</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java keyword">package</code> <code class="java plain">com.edw.main;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="java keyword">import</code> <code class="java plain">com.edw.rmi.MessageImpl;</code></div><div class="line number4 index3 alt1"><code class="java keyword">import</code> <code class="java plain">java.rmi.registry.LocateRegistry;</code></div><div class="line number5 index4 alt2"><code class="java keyword">import</code> <code class="java plain">java.rmi.registry.Registry;</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="java keyword">public</code> <code class="java keyword">class</code> <code class="java plain">Main {</code></div><div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number9 index8 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java keyword">void</code> <code class="java plain">startServer(){</code></div><div class="line number10 index9 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">try</code> <code class="java plain">{</code></div><div class="line number11 index10 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// create on port 1099</code></div><div class="line number12 index11 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Registry registry = LocateRegistry.createRegistry(</code><code class="java value">1099</code><code class="java plain">);</code></div><div class="line number13 index12 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number14 index13 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// create a new service named myMessage</code></div><div class="line number15 index14 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">registry.rebind(</code><code class="java string">"myMessage"</code><code class="java plain">, </code><code class="java keyword">new</code> <code class="java plain">MessageImpl());</code></div><div class="line number16 index15 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">} </code><code class="java keyword">catch</code> <code class="java plain">(Exception e) {</code></div><div class="line number17 index16 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">e.printStackTrace();</code></div><div class="line number18 index17 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number19 index18 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">System.out.println(</code><code class="java string">"system is ready"</code><code class="java plain">);</code></div><div class="line number20 index19 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number21 index20 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number22 index21 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">static</code> <code class="java keyword">void</code> <code class="java plain">main(String[] args) {</code></div><div class="line number23 index22 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Main main = </code><code class="java keyword">new</code> <code class="java plain">Main();</code></div><div class="line number24 index23 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">main.startServer();</code></div><div class="line number25 index24 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number26 index25 alt1"><code class="java plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>And this is my client’s side application</p>
+<div><div id="highlighter_49594" class="syntaxhighlighter  java"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">01</div><div class="line number2 index1 alt1">02</div><div class="line number3 index2 alt2">03</div><div class="line number4 index3 alt1">04</div><div class="line number5 index4 alt2">05</div><div class="line number6 index5 alt1">06</div><div class="line number7 index6 alt2">07</div><div class="line number8 index7 alt1">08</div><div class="line number9 index8 alt2">09</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java keyword">package</code> <code class="java plain">com.edw.main;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="java keyword">import</code> <code class="java plain">java.rmi.registry.LocateRegistry;</code></div><div class="line number4 index3 alt1"><code class="java keyword">import</code> <code class="java plain">java.rmi.registry.Registry;</code></div><div class="line number5 index4 alt2"><code class="java keyword">import</code> <code class="java plain">com.edw.rmi.Message;</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="java keyword">public</code> <code class="java keyword">class</code> <code class="java plain">Main {</code></div><div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number9 index8 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java keyword">void</code> <code class="java plain">doTest(){</code></div><div class="line number10 index9 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">try</code> <code class="java plain">{</code></div><div class="line number11 index10 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// fire to localhost port 1099</code></div><div class="line number12 index11 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Registry myRegistry = LocateRegistry.getRegistry(</code><code class="java string">"127.0.0.1"</code><code class="java plain">, </code><code class="java value">1099</code><code class="java plain">);</code></div><div class="line number13 index12 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number14 index13 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// search for myMessage service</code></div><div class="line number15 index14 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Message impl = (Message) myRegistry.lookup(</code><code class="java string">"myMessage"</code><code class="java plain">);</code></div><div class="line number16 index15 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number17 index16 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// call server's method&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number18 index17 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">impl.sayHello(</code><code class="java string">"edwin"</code><code class="java plain">);</code></div><div class="line number19 index18 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number20 index19 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">System.out.println(</code><code class="java string">"Message Sent"</code><code class="java plain">);</code></div><div class="line number21 index20 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">} </code><code class="java keyword">catch</code> <code class="java plain">(Exception e) {</code></div><div class="line number22 index21 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">e.printStackTrace();</code></div><div class="line number23 index22 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number24 index23 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number25 index24 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number26 index25 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">static</code> <code class="java keyword">void</code> <code class="java plain">main(String[] args) {</code></div><div class="line number27 index26 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Main main = </code><code class="java keyword">new</code> <code class="java plain">Main();</code></div><div class="line number28 index27 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">main.doTest();</code></div><div class="line number29 index28 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number30 index29 alt1"><code class="java plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>This is the screenshot of what happen on my netbeans’ console, for my RMI client’s side<br>
+<a href="./A Simple Java RMI Tutorial _ edwin's blog_files/rmiclient.png" rel="lightbox[777]"><img src="./A Simple Java RMI Tutorial _ edwin's blog_files/rmiclient.png" alt="" title="rmiclient" width="463" height="159" class="aligncenter size-full wp-image-779"></a></p>
+<p>and RMI’s server side<br>
+<a href="./A Simple Java RMI Tutorial _ edwin's blog_files/rmiserver.png" rel="lightbox[777]"><img src="./A Simple Java RMI Tutorial _ edwin's blog_files/rmiserver.png" alt="" title="rmiserver" width="489" height="177" class="aligncenter size-full wp-image-780"></a></p>
+<p>and this is my netbeans’ project<br>
+<a href="./A Simple Java RMI Tutorial _ edwin's blog_files/rmiproject.png" rel="lightbox[777]"><img src="./A Simple Java RMI Tutorial _ edwin's blog_files/rmiproject.png" alt="" title="rmiproject" width="299" height="330" class="aligncenter size-full wp-image-781"></a></p>
+<p>While this is what RMI messages looks like<br>
+<a href="http://edwin.baculsoft.com/wp-content/uploads/2012/01/rmimessage.png" rel="lightbox[777]"><img src="./A Simple Java RMI Tutorial _ edwin's blog_files/rmimessage-300x243.png" alt="" title="rmimessage" width="300" height="243" class="aligncenter size-medium wp-image-783"></a></p>
+<p>Have fun with RMI <img src="./A Simple Java RMI Tutorial _ edwin's blog_files/smile.png" alt=":)" class="wp-smiley"> </p>
+<a href="https://plus.google.com/112373736830148018491?rel=author" target="_blank" style="display:none;">Google+</a>
+                                                                                                                   
+
+
+                                                                </div>
+                                                                <!-- end main content -->
+
+
+                                                                                                                                <!-- tags -->
+                                                                <div class="tagcloud">
+                                                                        
+                                                                    <a href="http://edwin.baculsoft.com/tag/ejb3/" style="font-size: 12px;">ejb3</a> <a href="http://edwin.baculsoft.com/tag/java/" style="font-size: 12px;">Java</a> <a href="http://edwin.baculsoft.com/tag/programming/" style="font-size: 12px;">Programming</a> <a href="http://edwin.baculsoft.com/tag/utility/" style="font-size: 12px;">utility</a> 
+                                                                </div>
+                                                                <!-- end tags -->
+                                                                
+                                                                    
+                                                                <div class="clearfix"></div>
+                                                                
+                                                                
+
+
+                                                        </div>
+                                                        <!-- end inner content -->
+
+
+                                                                                                                <!-- author -->
+                                                        
+                                                        <!-- end author -->
+                                                        
+
+                                                                                                <!-- related posts -->
+                                                <!-- end related posts -->
+                                                
+
+
+
+                                                <!-- comments -->
+
+<!-- end comments -->
+
+
+<!-- comments form -->
+<div id="respond" class="post-inner-content comments-form secondary-content-box">
+    
+                
+                <div class="content-box-inner">
+                  
+
+                                <h4>Leave a Comment</h4>
+
+                
+                
+
+                								<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title"> <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/#respond" style="display:none;">Cancel Reply</a></small></h3>
+									<form action="http://edwin.baculsoft.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																			<p class="light-font">Please be polite. We appreciate that.<br> Your email address will not be published and required fields are marked</p>							<br><input type="text" value="" name="author" class="comment-name textfield" id="comment-name" placeholder="Your Name *">
+<input type="text" value="" name="email" class="comment-email textfield" id="comment-email" placeholder="Your Email *">
+<input type="text" value="" name="url" class="comment-website textfield" id="comment-website" placeholder="Your Website ">
+												<textarea name="comment" id="comment-text" placeholder="Write Message" class="comment-text"></textarea>												<p class="form-submit">
+							<input name="submit" type="submit" id="submit-comment" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="777" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						<div id="smilies_toolbar">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/bat.png" class="wp-smiley" alt=":-[" title=":-[" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/beer.png" class="wp-smiley" alt="(B)" title="(B)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/cake.png" class="wp-smiley" alt="(^)" title="(^)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/camera.png" class="wp-smiley" alt="(P)" title="(P)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/cat.png" class="wp-smiley" alt="(@)" title="(@)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/clock.png" class="wp-smiley" alt="(O)" title="(O)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/cocktail.png" class="wp-smiley" alt="(D)" title="(D)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/confused.png" class="wp-smiley" alt=":-S" title=":-S" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/cry.png" class="wp-smiley" alt=";-(" title=";-(" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/cup.png" class="wp-smiley" alt="(C)" title="(C)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/dog.png" class="wp-smiley" alt="(&amp;)" title="(&amp;)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/embarassed.png" class="wp-smiley" alt=":-$" title=":-$" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/email.png" class="wp-smiley" alt="(E)" title="(E)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/film.png" class="wp-smiley" alt="(~)" title="(~)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/kiss.png" class="wp-smiley" alt="(K)" title="(K)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/lightbulb.png" class="wp-smiley" alt="(I)" title="(I)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/love.png" class="wp-smiley" alt="(L)" title="(L)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/note.png" class="wp-smiley" alt="(8)" title="(8)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/omg.png" class="wp-smiley" alt=":-O" title=":-O" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/phone.png" class="wp-smiley" alt="(T)" title="(T)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/present.png" class="wp-smiley" alt="(G)" title="(G)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/rose.png" class="wp-smiley" alt="(F)" title="(F)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/sad.png" class="wp-smiley" alt=":-(" title=":-(" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/shade.png" class="wp-smiley" alt="(H)" title="(H)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/smile.png" class="wp-smiley" alt=":-)" title=":-)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/star.png" class="wp-smiley" alt="(*)" title="(*)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/teeth.png" class="wp-smiley" alt=":-D" title=":-D" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/thumbs_down.png" class="wp-smiley" alt="(N)" title="(N)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/thumbs_up.png" class="wp-smiley" alt="(Y)" title="(Y)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/tongue.png" class="wp-smiley" alt=":-P" title=":-P" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/unlove.png" class="wp-smiley" alt="(U)" title="(U)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/wilted_rose.png" class="wp-smiley" alt="(W)" title="(W)" style="cursor: pointer;">
+<img src="./A Simple Java RMI Tutorial _ edwin's blog_files/wink.png" class="wp-smiley" alt=";-)" title=";-)" style="cursor: pointer;">
+</div>
+					</form>
+							</div><!-- #respond -->
+			
+                
+                
+                
+                
+
+
+                </div>
+                <!-- end content box inner -->
+
+</div>
+<!-- end comments form -->
+
+
+
+
+
+                                        </div>
+                                        <!-- end post-content-inner-wrapper -->
+
+                                    </div><!-- end post content -->
+                                                                       
+
+                            
+
+
+                            </div><!-- end single post -->
+
+                                                          
+                           
+                                
+
+
+                            
+
+                   </div>
+                   <!-- end left side -->
+
+
+                    
+                    <!-- right side [sidebar] -->
+<!-- end sidebar -->
+
+                  
+                    
+                   <div class="clearfix"></div>
+
+
+                    
+
+
+                </div><!-- end row -->
+            </div><!-- end container -->
+</section><!-- end blog -->
+<section class="blog-pagination" id="pagination">
+            
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="prev-posts"><a href="http://edwin.baculsoft.com/2012/02/nullpointerexception-when-using-jpa/" rel="next"></a></div>
+                    <div class="next-posts"><a href="http://edwin.baculsoft.com/2012/01/weird-blank-report-when-using-jasperreport/" rel="prev"></a></div>
+                </div>
+            </div><!-- end row -->
+        </div>
+        <!-- end container -->
+
+
+</section>
+<!-- end blog pagination  -->
+<!-- footer -->
+<footer>
+        
+        <div class="container">
+            <div class="row">
+                    
+
+
+                    <!-- social icons -->
+                    <div class="social-icons">
+                        
+
+                                                        <a href="http://facebook.com/m.edwin" class="facebook"></a>
+                                                                                    <a href="http://twitter.com/baculsoft" class="twitter"></a>
+                                                                                    <a href="http://www.linkedin.com/in/muhammadedwin" class="linkedin"></a>
+                                                                                                                                            <a href="skype:dimgildo?call" class="skype"></a>
+                                                                                                                                                                                                                                                            <a href="http://instagram.com/edwinkun" class="instagram"></a>
+                                                                                    <a href="https://github.com/edwinkun/" class="github"></a>
+                            
+                            
+
+
+                    </div>
+                    <!-- end social icons -->
+
+
+
+                    
+
+
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+
+</footer>
+<!-- end footer -->
+<script type="text/javascript">
+/* <![CDATA[ */
+(function($) {
+	/* OnClick action */
+	$("#smilies_toolbar img").click(function() {
+		var text = $(this).attr('alt');
+		/* get an html escaped version of the text: */
+		tempdiv = $('<div/>');
+		text = tempdiv.text(text).html();
+		tempdiv.remove(); // Free up memory
+		var commentbox = $("form[action$=wp-comments-post.php] textarea:visible");
+		if (!commentbox.length) return;
+		commentbox.insertAtCaret(text);
+	});
+	$("#smilies_toolbar img").css('cursor', 'pointer');
+})(jQuery);
+/* ]]> */
+</script>
+	
+<!-- Smilies package, Kopete, courtesy of Matt Read (http://mattread.com/) -->
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/shCore.js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/shBrushJava.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://edwin.baculsoft.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://edwin.baculsoft.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"http:\/\/edwin.baculsoft.com\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/thickbox.js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/stt-common.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var mejsL10n = {"language":"en-US","strings":{"Close":"Close","Fullscreen":"Fullscreen","Download File":"Download File","Download Video":"Download Video","Play\/Pause":"Play\/Pause","Mute Toggle":"Mute Toggle","None":"None","Turn off Fullscreen":"Turn off Fullscreen","Go Fullscreen":"Go Fullscreen","Unmute":"Unmute","Mute":"Mute","Captions\/Subtitles":"Captions\/Subtitles"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/mediaelement-and-player.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/wp-mediaelement.js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/jflickrfeed.js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/placeholder.js"></script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/jquery.browser.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var feather = {"speed":"700","ease":"easeInQuad","template_url":"http:\/\/edwin.baculsoft.com\/wp-content\/themes\/feather","admin_ajax":"http:\/\/edwin.baculsoft.com\/wp-admin\/admin-ajax.php","flexslider_animation":"fade"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./A Simple Java RMI Tutorial _ edwin's blog_files/custom.js"></script>
+
+<span style="height: 20px; width: 40px; position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; top: 3251px; left: 87px; background-image: url(&quot;data:image/png;base64,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&quot;); background-color: transparent; background-size: 40px 20px;"></span><div id="stimuli_overlay" style="display: none;"></div><div id="stimuli_lightbox" style="display: none;"><div id="stimuli_outerImageContainer" style="width: 250px; height: 250px;"><div id="stimuli_imageContainer"><img id="stimuli_lightboxImage"><div id="stimuli_hoverNav"><a id="stimuli_prevLink" href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/#"></a><a id="stimuli_nextLink" href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/#"></a></div><div id="stimuli_loading"><a id="stimuli_loadingLink" href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/#"></a></div></div></div><div id="stimuli_imageDataContainer"><div id="stimuli_imageData"><div id="stimuli_imageDetails"><span id="stimuli_caption"></span><span id="stimuli_numberDisplay"></span></div><div id="stimuli_bottomNav"><a id="stimuli_bottomNavClose" href="http://edwin.baculsoft.com/2012/01/a-simple-java-rmi-tutorial/#"></a></div></div></div></div></body></html>
